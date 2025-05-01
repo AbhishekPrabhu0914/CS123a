@@ -10,3 +10,8 @@ https://docs.google.com/presentation/d/1PiFR4HB0QhFW6PSSHEbbc0YGUo_W3kb5FnbZPp7I
 
 5. The code will also save the training history plot and predictions vs actual plot as training_history.png and predictions_vs_actual.png
 
+6. Run the microglia_random_forest.py file
+
+7. The code will create a feature importance plot and a confusion matrix plot
+
+8. The code will also save the feature importance plot and confusion matrix plot as feature_importance.png and confusion_matrix.png
