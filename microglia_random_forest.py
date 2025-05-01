@@ -30,7 +30,7 @@ def prepare_data():
 def train_random_forest(X, y, features):
     """Train and evaluate the Random Forest model."""
     # Split the data
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
     # Scale the features
     scaler = StandardScaler()
@@ -56,28 +56,6 @@ def train_random_forest(X, y, features):
     
     return rf_model, X_test_scaled, y_test, y_pred
 
-def plot_feature_importance(model, features):
-    """Plot feature importance from the Random Forest model."""
-    # Get feature importance
-    importance = model.feature_importances_
-    
-    # Create DataFrame of features and their importance scores
-    feature_importance = pd.DataFrame({
-        'feature': features,
-        'importance': importance
-    })
-    
-    # Sort by importance
-    feature_importance = feature_importance.sort_values('importance', ascending=False)
-    
-    # Plot
-    plt.figure(figsize=(12, 6))
-    sns.barplot(x='importance', y='feature', data=feature_importance.head(10))
-    plt.title('Top 10 Most Important Features')
-    plt.xlabel('Feature Importance')
-    plt.tight_layout()
-    plt.savefig('feature_importance.png')
-    plt.close()
 
 def plot_confusion_matrix(y_test, y_pred):
     """Plot confusion matrix."""
@@ -89,7 +67,7 @@ def plot_confusion_matrix(y_test, y_pred):
     plt.ylabel('True Label')
     plt.xlabel('Predicted Label')
     plt.tight_layout()
-    plt.savefig('confusion_matrix.png')
+    plt.savefig('Confusion_matrix.png')
     plt.close()
 
 def main():
@@ -99,15 +77,11 @@ def main():
     # Train and evaluate model
     model, X_test_scaled, y_test, y_pred = train_random_forest(X, y, features)
     
-    # Plot feature importance
-    plot_feature_importance(model, features)
-    
     # Plot confusion matrix
     plot_confusion_matrix(y_test, y_pred)
     
     print("\nVisualization files created:")
-    print("1. feature_importance.png - Shows the most important features")
-    print("2. confusion_matrix.png - Shows the model's prediction performance")
+    print("Confusion_matrix.png - Shows the model's prediction performance")
 
 if __name__ == "__main__":
     main()

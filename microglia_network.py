@@ -42,7 +42,7 @@ class MicrogliaNetwork(nn.Module):
     def forward(self, x):
         return self.network(x)
 
-def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=1000):
+def train_model(model, train_loader, val_loader, criterion, optimizer, num_epochs=500):
     train_losses = []
     val_losses = []
     
